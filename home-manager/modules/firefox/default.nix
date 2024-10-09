@@ -8,10 +8,7 @@ let
   firefox-package = pkgs.firefox.override {
     nativeMessagingHosts = [
       pkgs.gnome-browser-connector
-      (pkgs.callPackage
-        ../../../pkgs/firefox-profile-switcher-connector/firefox-profile-switcher-connector.nix
-        { }
-      )
+      (pkgs.callPackage ./firefox-profile-switcher-connector.nix { })
     ];
   };
 in
@@ -68,6 +65,7 @@ in
         foxyproxy-standard
         tree-style-tab
         profile-switcher
+        immersive-translate
       ];
       # containersForce = true;
       bookmarks = [
@@ -105,6 +103,7 @@ in
         foxyproxy-standard
         tree-style-tab
         profile-switcher
+        immersive-translate
       ];
       containersForce = true;
       containers = {
