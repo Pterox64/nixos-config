@@ -35,7 +35,7 @@ in
           "local"
         ];
       };
-      TranslateEnabled = true;
+      TranslateEnabled = false;
       SearchBar = "unified";
       RequestedLocales = [
         "ru"
@@ -59,7 +59,6 @@ in
         bitwarden
         onetab
         ublock-origin
-        to-deepl
         tampermonkey
         # smartproxy
         foxyproxy-standard
