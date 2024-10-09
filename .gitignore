@@ -1,3 +1,2 @@
 **/result/**/*
-**/*.secret
-**/secret/**/*
+secrets/secrets.nix
