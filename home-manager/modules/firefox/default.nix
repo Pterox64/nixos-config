@@ -238,33 +238,33 @@ in
   programs.firefox = {
     enable = true;
     package = firefox-package;
-    policies = {
-      HardwareAcceleration = true;
-      DefaultDownloadDirectory = "${config.xdg.userDirs.download}";
-      DNSOverHTTPS = {
-        Enabled = true;
-        Locked = true;
-        Fallback = false;
-        ExcludedDomains = [
-          "pterox.website"
-          "local"
-        ];
-      };
-      TranslateEnabled = false;
-      SearchBar = "unified";
-      RequestedLocales = [
-        "ru"
-        "en-US"
-      ];
-      PostQuantumKeyAgreementEnabled = true;
-      ExtensionUpdate = true;
-      EnableTrackingProtection = {
-        Value = true;
-        Cryptomining = true;
-        Fingerprinting = true;
-      };
-      DisplayBookmarksToolbar = "newtab";
-    };
+    # policies = {
+    #   HardwareAcceleration = true;
+    #   DefaultDownloadDirectory = "${config.xdg.userDirs.download}";
+    #   DNSOverHTTPS = {
+    #     Enabled = true;
+    #     Locked = true;
+    #     Fallback = false;
+    #     ExcludedDomains = [
+    #       "pterox.website"
+    #       "local"
+    #     ];
+    #   };
+    #   TranslateEnabled = false;
+    #   SearchBar = "unified";
+    #   RequestedLocales = [
+    #     "ru"
+    #     "en-US"
+    #   ];
+    #   PostQuantumKeyAgreementEnabled = true;
+    #   ExtensionUpdate = true;
+    #   EnableTrackingProtection = {
+    #     Value = true;
+    #     Cryptomining = true;
+    #     Fingerprinting = true;
+    #   };
+    #   DisplayBookmarksToolbar = "newtab";
+    # };
     profiles.egor = {
       name = "Личный";
       id = 0;
