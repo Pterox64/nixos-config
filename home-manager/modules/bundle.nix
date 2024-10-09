@@ -7,6 +7,7 @@
     ./golang.nix
     ./htop.nix
     ./libreoffice.nix
+    ./lutris.nix
     ./packages.nix
     # ./qt.nix
     ./spoofdpi.nix
