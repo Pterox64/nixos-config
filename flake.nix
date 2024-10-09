@@ -9,12 +9,17 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
       nixpkgs,
       nixpkgs-unstable,
       nixos-hardware,
+      agenix,
       home-manager,
       nur,
       ...
@@ -26,8 +31,10 @@
       nixosConfigurations.nixos-notebook = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          nur.nixosModules.nur
           ./nixos/configuration.nix
+          agenix.nixosModules.default
+          { environment.systemPackages = [ agenix.packages.${system}.default ]; }
+          nur.nixosModules.nur
           nixos-hardware.nixosModules.common-hidpi
           nixos-hardware.nixosModules.common-pc-laptop
           nixos-hardware.nixosModules.common-pc-laptop-ssd
