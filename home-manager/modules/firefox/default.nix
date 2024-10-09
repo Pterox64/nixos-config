@@ -270,6 +270,7 @@ in
       id = 0;
       extraConfig = ffconfig;
       extensions = with config.nur.repos.rycee.firefox-addons; [
+        multi-account-containers
         privacy-badger
         betterttv
         bitwarden
@@ -310,6 +311,7 @@ in
       id = 1;
       extraConfig = ffconfig;
       extensions = with config.nur.repos.rycee.firefox-addons; [
+        multi-account-containers
         privacy-badger
         bitwarden
         onetab
