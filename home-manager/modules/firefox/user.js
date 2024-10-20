@@ -204,7 +204,7 @@ user_pref("ui.textHighlightBackground", "Fireprick");
 
 // Turn on Video Acceleration API (VA-API). For desktop environment based on Wayland
 // Включить Video Acceleration API (VA-API). Для окружений на базе Wayland
-// user_pref("widget.wayland-dmabuf-vaapi.enabled", true);
+user_pref("widget.wayland-dmabuf-vaapi.enabled", true);
 
 // Turn on FFmpegDataDecoder. For display server based on Wayland
 // Включить FFmpegDataDecoder. Для окружений на базе Wayland
