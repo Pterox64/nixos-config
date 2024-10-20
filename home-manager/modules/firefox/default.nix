@@ -69,6 +69,7 @@ in
         tree-style-tab
         profile-switcher
         immersive-translate
+        qr-code-address-bar
       ];
       bookmarks = [
         {
@@ -109,6 +110,7 @@ in
         tree-style-tab
         profile-switcher
         immersive-translate
+        qr-code-address-bar
       ];
       containersForce = true;
       containers = {
