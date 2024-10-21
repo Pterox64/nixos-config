@@ -8,6 +8,7 @@
     ./htop.nix
     ./libreoffice.nix
     ./lutris.nix
+    ./nodejs.nix
     ./packages.nix
     # ./qt.nix
     ./spoofdpi.nix
