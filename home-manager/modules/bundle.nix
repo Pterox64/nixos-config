@@ -2,8 +2,8 @@
   imports = [
     ./develop
     ./firefox
+    ./gnome
     ./evolution.nix
-    ./gnome.nix
     ./htop.nix
     ./libreoffice.nix
     ./lutris.nix
