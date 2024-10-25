@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   imports = [
     ./git.nix
@@ -6,4 +7,6 @@
     ./packages.nix
     ./vscode.nix
   ];
+
+  home.packages = with pkgs; [ adoptopenjdk-icedtea-web ];
 }
