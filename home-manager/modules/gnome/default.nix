@@ -1,9 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [
-    ./extensions.nix
-    ./packages.nix
-  ];
+  imports = [ ./extensions.nix ];
 
   home.packages = with pkgs; [ gnome.gnome-tweaks ];
 }
