@@ -4,6 +4,7 @@
     ./firefox
     ./gnome
     ./evolution.nix
+    ./flameshot.nix
     ./htop.nix
     ./libreoffice.nix
     ./lutris.nix
