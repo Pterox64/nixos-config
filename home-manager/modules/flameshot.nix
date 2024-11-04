@@ -1,12 +1,18 @@
 { pkgs, ... }:
 {
-  services.flameshot.enable = true;
-  services.flameshot.settings = {
-    General = {
-      disabledTrayIcon = false;
-      showStartupLaunchMessage = false;
-      startupLaunch = true;
-      showDesktopNotification = true;
+  home.packages = with pkgs; [
+    xdg-desktop-portal-gnome
+    xdg-desktop-portal
+  ];
+  services.flameshot = {
+    enable = true;
+    settings = {
+      General = {
+        disabledTrayIcon = true;
+        showStartupLaunchMessage = false;
+        startupLaunch = true;
+        showDesktopNotification = true;
+      };
     };
   };
 }
