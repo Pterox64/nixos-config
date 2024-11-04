@@ -36,6 +36,7 @@
     fastfetch
     opentofu
     openssl
+    attic-client
   ];
   environment.gnome.excludePackages = with pkgs; [
     gnome.geary
