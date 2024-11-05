@@ -6,7 +6,10 @@
     ./hardware-configuration.nix
   ];
 
-  disabledModules = [ ./modules/fprintd.nix ];
+  disabledModules = [
+    ./modules/fprintd.nix
+    ./modules/java.nix
+  ];
 
   hardware = {
     enableRedistributableFirmware = true;
