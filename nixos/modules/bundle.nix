@@ -4,8 +4,9 @@
     ./amdgpu.nix
     ./appimage.nix
     ./audio.nix
-    ./boot.nix
     ./bluetooth.nix
+    ./boot.nix
+    ./docker.nix
     ./env.nix
     ./flatpak.nix
     ./fprintd.nix

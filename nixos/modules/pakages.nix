@@ -11,8 +11,6 @@
     curl
     pciutils
     python3
-    docker
-    docker-compose
     pulsemixer
     inxi
     tree
