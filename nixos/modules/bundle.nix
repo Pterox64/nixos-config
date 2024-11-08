@@ -1,6 +1,7 @@
 {
   imports = [
     ./gnome
+    ./virtualisation
     ./amdgpu.nix
     ./appimage.nix
     ./audio.nix

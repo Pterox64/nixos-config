@@ -11,6 +11,7 @@
       "wheel"
       "networkmanager"
       "docker"
+      "libvirtd"
     ];
     useDefaultShell = true;
   };

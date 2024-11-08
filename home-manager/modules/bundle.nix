@@ -3,6 +3,7 @@
     ./develop
     ./firefox
     ./gnome
+    ./virtualisation
     ./evolution.nix
     ./flameshot.nix
     ./htop.nix
