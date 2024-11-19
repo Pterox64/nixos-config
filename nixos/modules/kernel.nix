@@ -1,11 +1,11 @@
 { pkgs, ... }:
 {
-  # boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_11;
-  boot.kernelPackages =
-    let
-      linux_huawei = pkgs.callPackage ../kernel/linux-6.1.3-huawei.nix { };
-    in
-    pkgs.recurseIntoAttrs (pkgs.linuxPackagesFor linux_huawei);
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_11;
+  # boot.kernelPackages =
+  #   let
+  #     linux_huawei = pkgs.callPackage ../kernel/linux-6.1.3-huawei.nix { };
+  #   in
+  #   pkgs.recurseIntoAttrs (pkgs.linuxPackagesFor linux_huawei);
 
   boot.kernelModules = [
     "snd_soc_es8316"
