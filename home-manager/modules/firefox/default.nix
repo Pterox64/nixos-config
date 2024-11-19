@@ -57,22 +57,66 @@ in
         id = 0;
         extraConfig = ffconfig;
         extensions = with config.nur.repos.rycee.firefox-addons; [
-          multi-account-containers
-          container-proxy
-          privacy-badger
+          immersive-translate
           betterttv
           bitwarden
+          open-url-in-container
+          container-tab-groups
+          multi-account-containers
           onetab
-          ublock-origin
-          tampermonkey
-          # smartproxy
-          foxyproxy-standard
-          tree-style-tab
+          privacy-badger
           profile-switcher
-          immersive-translate
           qr-code-address-bar
+          smartproxy
           stylus
+          tampermonkey
+          ublock-origin
         ];
+        # containersForce = true;
+        containers = {
+          private = {
+            id = 1;
+            name = "Личное";
+            icon = "fingerprint";
+            color = "toolbar";
+          };
+          proxy = {
+            id = 2;
+            name = "Запрет";
+            icon = "fence";
+            color = "turquoise";
+          };
+          banking = {
+            id = 3;
+            name = "Банкинг";
+            icon = "dollar";
+            color = "green";
+          };
+          shopping = {
+            id = 4;
+            name = "Покупки";
+            icon = "cart";
+            color = "pink";
+          };
+          youtube = {
+            id = 5;
+            name = "YouTube";
+            icon = "circle";
+            color = "red";
+          };
+          cit = {
+            id = 1001;
+            name = "СОГАУ ЦИТ";
+            icon = "briefcase";
+            color = "red";
+          };
+          eteron = {
+            id = 1002;
+            name = "Eteron";
+            icon = "briefcase";
+            color = "purple";
+          };
+        };
         bookmarks = [
           {
             name = "YouTube";
@@ -95,127 +139,6 @@ in
             url = "https://music.yandex.ru/home";
           }
         ];
-      };
-      eteron = {
-        name = "Eteron";
-        id = 1;
-        extraConfig = ffconfig;
-        extensions = with config.nur.repos.rycee.firefox-addons; [
-          multi-account-containers
-          container-proxy
-          privacy-badger
-          bitwarden
-          onetab
-          ublock-origin
-          tampermonkey
-          foxyproxy-standard
-          tree-style-tab
-          profile-switcher
-          immersive-translate
-          qr-code-address-bar
-          stylus
-        ];
-        containersForce = true;
-        containers = {
-          private = {
-            id = 0;
-            name = "Private";
-            icon = "fingerprint";
-            color = "toolbar";
-          };
-          eteron = {
-            id = 1;
-            name = "Eteron";
-            icon = "briefcase";
-            color = "blue";
-          };
-        };
-        bookmarks = [
-          {
-            name = "Yandex Cloud";
-            url = "https://console.yandex.cloud";
-          }
-          {
-            name = "GitLab";
-            url = "https://gitlab.eteron.ru";
-          }
-          {
-            name = "Grafana";
-            url = "https://grafana.eteron.ru";
-          }
-          {
-            name = "Prometheus";
-            url = "https://prometheus.eteron.ru/alerts";
-          }
-          {
-            name = "Zabbix";
-            url = "https://zabbix.eteron.ru";
-          }
-          {
-            name = "Graylog";
-            url = "https://logs.eteron.ru";
-          }
-          {
-            name = "Bareos";
-            url = "https://backups.eteron.ru";
-          }
-          {
-            name = "BigBird";
-            url = "https://app.bigbird.ru";
-          }
-          {
-            name = "BigBird2";
-            url = "https://app2.bigbird.ru";
-          }
-          {
-            name = "BigBird Demo";
-            url = "https://demo.bigbird.ru";
-          }
-          {
-            name = "BigBird2 Demo";
-            url = "https://demo2.bigbird.ru";
-          }
-          {
-            name = "YandexGPT";
-            url = "https://a.ya.ru";
-          }
-        ];
-      };
-      cit = {
-        name = "ЦИТ";
-        id = 2;
-        extraConfig = ffconfig;
-        extensions = with config.nur.repos.rycee.firefox-addons; [
-          multi-account-containers
-          container-proxy
-          privacy-badger
-          bitwarden
-          onetab
-          ublock-origin
-          tampermonkey
-          foxyproxy-standard
-          tree-style-tab
-          profile-switcher
-          immersive-translate
-          qr-code-address-bar
-          stylus
-        ];
-        containersForce = true;
-        containers = {
-          private = {
-            id = 0;
-            name = "Private";
-            icon = "fingerprint";
-            color = "toolbar";
-          };
-          eteron = {
-            id = 1;
-            name = "Eteron";
-            icon = "briefcase";
-            color = "blue";
-          };
-        };
-
       };
     };
   };
