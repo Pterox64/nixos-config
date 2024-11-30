@@ -13,6 +13,7 @@
     # ./modules/firefox.nix
     ./modules/ssh.nix
     ./modules/vivaldi.nix
+    ./modules/spoofdpi.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
