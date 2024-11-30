@@ -24,33 +24,34 @@ in
   programs.firefox = {
     enable = true;
     package = firefox-package;
-    # policies = {
-    #   HardwareAcceleration = true;
-    #   DefaultDownloadDirectory = "${config.xdg.userDirs.download}";
-    #   DNSOverHTTPS = {
-    #     Enabled = true;
-    #     Locked = true;
-    #     Fallback = false;
-    #     ExcludedDomains = [
-    #       "pterox.website"
-    #       "local"
-    #     ];
-    #   };
-    #   TranslateEnabled = false;
-    #   SearchBar = "unified";
-    #   RequestedLocales = [
-    #     "ru"
-    #     "en-US"
-    #   ];
-    #   PostQuantumKeyAgreementEnabled = true;
-    #   ExtensionUpdate = true;
-    #   EnableTrackingProtection = {
-    #     Value = true;
-    #     Cryptomining = true;
-    #     Fingerprinting = true;
-    #   };
-    #   DisplayBookmarksToolbar = "newtab";
-    # };
+    policies = {
+      DisableMasterPasswordCreation = true;
+      # HardwareAcceleration = true;
+      #   DefaultDownloadDirectory = "${config.xdg.userDirs.download}";
+      #   DNSOverHTTPS = {
+      #     Enabled = true;
+      #     Locked = true;
+      #     Fallback = false;
+      #     ExcludedDomains = [
+      #       "pterox.website"
+      #       "local"
+      #     ];
+      #   };
+      #   TranslateEnabled = false;
+      SearchBar = "separate";
+      #   RequestedLocales = [
+      #     "ru"
+      #     "en-US"
+      #   ];
+      #   PostQuantumKeyAgreementEnabled = true;
+      #   ExtensionUpdate = true;
+      #   EnableTrackingProtection = {
+      #     Value = true;
+      #     Cryptomining = true;
+      #     Fingerprinting = true;
+      #   };
+      DisplayBookmarksToolbar = "newtab";
+    };
     profiles = {
       egor = {
         name = "Личный";
@@ -60,6 +61,7 @@ in
           immersive-translate
           betterttv
           bitwarden
+          # foxytab
           open-url-in-container
           container-tab-groups
           multi-account-containers
@@ -72,7 +74,7 @@ in
           tampermonkey
           ublock-origin
         ];
-        # containersForce = true;
+        containersForce = true;
         containers = {
           private = {
             id = 1;
