@@ -1,7 +1,8 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    bitwarden-cli
+    bitwarden-desktop
+    dbeaver-bin
     guake
     nekoray
     obsidian
