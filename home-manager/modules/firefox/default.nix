@@ -59,7 +59,6 @@ in
           multi-account-containers
           onetab
           privacy-badger
-          profile-switcher
           qr-code-address-bar
           smartproxy
           stylus
