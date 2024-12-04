@@ -13,37 +13,11 @@ let
   };
 in
 {
+  imports = [ ./policies.nix ];
+
   programs.firefox = {
     enable = true;
     package = firefox-package;
-    policies = {
-      DisableMasterPasswordCreation = true;
-      # HardwareAcceleration = true;
-      #   DefaultDownloadDirectory = "${config.xdg.userDirs.download}";
-      #   DNSOverHTTPS = {
-      #     Enabled = true;
-      #     Locked = true;
-      #     Fallback = false;
-      #     ExcludedDomains = [
-      #       "pterox.website"
-      #       "local"
-      #     ];
-      #   };
-      #   TranslateEnabled = false;
-      SearchBar = "separate";
-      #   RequestedLocales = [
-      #     "ru"
-      #     "en-US"
-      #   ];
-      #   PostQuantumKeyAgreementEnabled = true;
-      #   ExtensionUpdate = true;
-      #   EnableTrackingProtection = {
-      #     Value = true;
-      #     Cryptomining = true;
-      #     Fingerprinting = true;
-      #   };
-      DisplayBookmarksToolbar = "newtab";
-    };
     profiles = {
       egor = {
         name = "Личный";
