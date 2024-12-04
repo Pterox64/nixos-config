@@ -37,7 +37,7 @@
     attic-client
   ];
   environment.gnome.excludePackages = with pkgs; [
-    gnome.geary
+    geary
     epiphany
     gnome-tour
   ];

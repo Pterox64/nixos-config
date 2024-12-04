@@ -1,8 +1,7 @@
 { pkgs, ... }:
 {
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
     extraPackages = with pkgs; [
       rocmPackages.clr.icd
       amdvlk
