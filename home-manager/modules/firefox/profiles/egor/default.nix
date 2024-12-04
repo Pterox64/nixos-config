@@ -9,6 +9,7 @@ let
 in
 {
   imports = [
+    ./bookmarks.nix
     ./containers.nix
     ./extensions.nix
   ];
@@ -17,27 +18,5 @@ in
     name = "Личный";
     id = 0;
     extraConfig = ffconfig;
-    bookmarks = [
-      {
-        name = "YouTube";
-        url = "https://www.youtube.com";
-      }
-      {
-        name = "YouTube Music";
-        url = "https://music.youtube.com";
-      }
-      {
-        name = "Twitch";
-        url = "https://twitch.tv";
-      }
-      {
-        name = "YandexGPT";
-        url = "https://a.ya.ru";
-      }
-      {
-        name = "Yandex Music";
-        url = "https://music.yandex.ru/home";
-      }
-    ];
   };
 }
