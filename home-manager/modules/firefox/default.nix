@@ -1,9 +1,4 @@
-{
-  pkgs,
-  config,
-  home,
-  ...
-}:
+{ pkgs, home, ... }:
 let
   ffconfig = builtins.readFile ./user.js;
   firefox-package = pkgs.firefox.override {

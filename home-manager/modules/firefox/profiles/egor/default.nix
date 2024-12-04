@@ -1,9 +1,3 @@
-{
-  pkgs,
-  config,
-  home,
-  ...
-}:
 let
   extraconfig = builtins.readFile ../user.js;
 in
