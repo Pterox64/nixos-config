@@ -9,18 +9,10 @@ let
   firefox-package = pkgs.firefox.override {
     nativeMessagingHosts = [
       pkgs.gnome-browser-connector
-      (pkgs.callPackage ./firefox-profile-switcher-connector.nix { })
     ];
   };
 in
 {
-  home.file = {
-    "firefoxprofileswitcher/config.json" = {
-      target = "${config.xdg.configHome}/firefoxprofileswitcher/config.json";
-      text = builtins.toJSON { browser_binary = "${firefox-package}/bin/firefox"; };
-    };
-  };
-
   programs.firefox = {
     enable = true;
     package = firefox-package;
