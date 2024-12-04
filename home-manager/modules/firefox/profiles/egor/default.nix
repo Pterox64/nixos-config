@@ -8,6 +8,8 @@ let
   ffconfig = builtins.readFile ../user.js;
 in
 {
+  imports = [ ./containers.nix ];
+
   programs.firefox.profiles.egor = {
     name = "Личный";
     id = 0;
@@ -27,51 +29,6 @@ in
       tampermonkey
       ublock-origin
     ];
-    containersForce = true;
-    containers = {
-      private = {
-        id = 1;
-        name = "Личное";
-        icon = "fingerprint";
-        color = "toolbar";
-      };
-      proxy = {
-        id = 2;
-        name = "Запрет";
-        icon = "fence";
-        color = "turquoise";
-      };
-      banking = {
-        id = 3;
-        name = "Банкинг";
-        icon = "dollar";
-        color = "green";
-      };
-      shopping = {
-        id = 4;
-        name = "Покупки";
-        icon = "cart";
-        color = "pink";
-      };
-      youtube = {
-        id = 5;
-        name = "YouTube";
-        icon = "circle";
-        color = "red";
-      };
-      cit = {
-        id = 1001;
-        name = "СОГАУ ЦИТ";
-        icon = "briefcase";
-        color = "red";
-      };
-      eteron = {
-        id = 1002;
-        name = "Eteron";
-        icon = "briefcase";
-        color = "purple";
-      };
-    };
     bookmarks = [
       {
         name = "YouTube";
