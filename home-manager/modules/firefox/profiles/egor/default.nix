@@ -5,7 +5,7 @@
   ...
 }:
 let
-  ffconfig = builtins.readFile ../user.js;
+  extraconfig = builtins.readFile ../user.js;
 in
 {
   imports = [
@@ -17,6 +17,6 @@ in
   programs.firefox.profiles.egor = {
     name = "Личный";
     id = 0;
-    extraConfig = ffconfig;
+    extraConfig = extraconfig;
   };
 }
