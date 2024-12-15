@@ -1,7 +1,7 @@
-{ config, ... }:
+{ pkgs, ... }:
 {
   # https://gitlab.com/rycee/nur-expressions/-/blob/master/pkgs/firefox-addons/addons.json?ref_type=heads
-  programs.firefox.profiles.egor.extensions = with config.nur.repos.rycee.firefox-addons; [
+  programs.firefox.profiles.egor.extensions = with pkgs.nur.repos.rycee.firefox-addons; [
     immersive-translate
     betterttv
     bitwarden
