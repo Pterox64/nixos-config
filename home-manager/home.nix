@@ -10,7 +10,6 @@
     ./modules/bundle.nix
   ];
   disabledModules = [
-    # ./modules/firefox.nix
     ./modules/ssh.nix
     ./modules/vivaldi.nix
     ./modules/spoofdpi.nix
