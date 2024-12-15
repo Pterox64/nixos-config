@@ -1,12 +1,12 @@
 {
   pkgs,
-  pkgs-unstable,
+  # pkgs-unstable,
   config,
   home,
   ...
 }:
 {
-  home.packages = with pkgs-unstable; [ yandex-disk ];
+  home.packages = with pkgs; [ yandex-disk ];
 
   xdg.dataFile.iconYandexDisk512 = {
     source = builtins.fetchurl {
