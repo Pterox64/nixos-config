@@ -18,6 +18,7 @@
     ./usbimager.nix
     ./vivaldi.nix
     ./winbox.nix
+    ./wine.nix
     ./yandex-disk.nix
     ./yubico.nix
   ];
