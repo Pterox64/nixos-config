@@ -1,6 +1,5 @@
 { pkgs, home, ... }:
 let
-  ffconfig = builtins.readFile ./user.js;
   firefox-package = pkgs.firefox.override {
     nativeMessagingHosts = [
       pkgs.gnome-browser-connector
