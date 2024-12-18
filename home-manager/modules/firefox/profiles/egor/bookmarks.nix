@@ -20,5 +20,13 @@
       name = "Yandex Music";
       url = "https://music.yandex.ru/home";
     }
+    {
+      name = "app.crowdsec.net";
+      url = "https://app.crowdsec.net";
+    }
+    {
+      name = "Compose file reference";
+      url = "https://docs.docker.com/reference/compose-file/";
+    }
   ];
 }
