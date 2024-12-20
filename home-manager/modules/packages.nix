@@ -8,6 +8,5 @@
     nekoray
     obsidian
     keepass
-    hydra-check
   ];
 }

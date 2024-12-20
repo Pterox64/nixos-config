@@ -11,12 +11,10 @@
     ./lutris.nix
     ./packages.nix
     # ./qt.nix
-    ./spoofdpi.nix
     ./ssh.nix
     ./telegram.nix
     ./transmission.nix
     ./usbimager.nix
-    ./vivaldi.nix
     ./winbox.nix
     ./wine.nix
     ./yandex-disk.nix
