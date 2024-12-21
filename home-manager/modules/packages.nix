@@ -8,5 +8,6 @@
     nekoray
     obsidian
     keepass
+    tilix
   ];
 }
