@@ -20,7 +20,6 @@
     git
     gnumake
     cmake
-    translate-shell
     lshw
     usbutils
     nixfmt-rfc-style
