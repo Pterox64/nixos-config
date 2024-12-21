@@ -2,5 +2,8 @@
 {
   imports = [ ./extensions.nix ];
 
-  home.packages = with pkgs; [ gnome-tweaks ];
+  home.packages = with pkgs; [
+    gnome-tweaks
+    gnome-terminal
+  ];
 }

@@ -40,6 +40,7 @@
     geary
     epiphany
     gnome-tour
+    gnome-console
   ];
   services.xserver.excludePackages = [ pkgs.xterm ];
 }
