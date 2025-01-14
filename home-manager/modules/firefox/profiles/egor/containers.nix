@@ -25,12 +25,6 @@
       icon = "cart";
       color = "pink";
     };
-    youtube = {
-      id = 5;
-      name = "YouTube";
-      icon = "circle";
-      color = "red";
-    };
     cit = {
       id = 1001;
       name = "СОГАУ ЦИТ";
