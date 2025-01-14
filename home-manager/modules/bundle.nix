@@ -6,6 +6,7 @@
     ./virtualisation
     ./evolution.nix
     ./flameshot.nix
+    ./gimp.nix
     ./htop.nix
     ./libreoffice.nix
     ./lutris.nix
