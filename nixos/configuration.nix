@@ -7,7 +7,7 @@
   ];
 
   disabledModules = [
-    ./modules/fprintd.nix
+    # ./modules/fprintd.nix
     ./modules/java.nix
   ];
 
