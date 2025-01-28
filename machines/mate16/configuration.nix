@@ -1,15 +1,14 @@
 { pkgs, ... }:
 {
   imports = [
-    ./modules/bundle.nix
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
-  disabledModules = [
-    ./modules/fprintd.nix
-    ./modules/java.nix
-  ];
+  # disabledModules = [
+  #   ./modules/fprintd.nix
+  #   ./modules/java.nix
+  # ];
 
   hardware = {
     enableRedistributableFirmware = true;
@@ -24,25 +23,7 @@
     powertop.enable = true;
   };
 
-  nix = {
-    settings = {
-      allowed-users = [ "@wheel" ];
-      trusted-users = [
-        "root"
-        "@wheel"
-      ];
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-    };
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-    };
-  };
-
+networking.hostName="nixos-mate16";
   services = {
     fwupd.enable = true;
 
@@ -54,9 +35,6 @@
     #   layout = "us,ru";
     #   options = "grp:win_space_toggle";
     # };
-
-    # Enable CUPS to print documents.
-    # printing.enable = true;
 
     yubikey-agent.enable = true;
 

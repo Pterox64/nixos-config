@@ -10,8 +10,7 @@
     wget
     curl
     pciutils
-    python3
-    pulsemixer
+    python3    
     inxi
     tree
     mc
