@@ -9,7 +9,6 @@ in
 {
   imports = [
     ./policies.nix
-    ./profiles
   ];
 
   programs.firefox = {

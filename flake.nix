@@ -29,10 +29,10 @@
       system = "x86_64-linux";
     in
     {
-      nixosConfigurations.nixos-notebook = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.huawei_mate15 = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./nixos/configuration.nix
+          ./machines/huawei-mate15/configuration.nix
           agenix.nixosModules.default
           { environment.systemPackages = [ agenix.packages.${system}.default ]; }
           nixos-hardware.nixosModules.common-hidpi
@@ -41,6 +41,16 @@
           nixos-hardware.nixosModules.common-cpu-amd
           nixos-hardware.nixosModules.common-cpu-amd-zenpower
           nixos-hardware.nixosModules.common-gpu-amd
+        ];
+      };
+      nixosConfigurations.htpc = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./nixos/configuration.nix
+          nixos-hardware.nixosModules.common-hidpi
+          nixos-hardware.nixosModules.common-pc
+          nixos-hardware.nixosModules.common-pc-ssd
+          nixos-hardware.nixosModules.common-cpu-intel-cpu-only
         ];
       };
       homeConfigurations.egor = home-manager.lib.homeManagerConfiguration {
@@ -56,7 +66,23 @@
               })
             ];
           }
-          ./home-manager/home.nix
+          ./home/egor/home.nix
+        ];
+      };
+      homeConfigurations.tanya = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs { inherit system; };
+        modules = [
+          {
+            nixpkgs.overlays = [
+              (final: prev: {
+                nur = import nur {
+                  nurpkgs = prev;
+                  pkgs = prev;
+                };
+              })
+            ];
+          }
+          ./home/tanya/home.nix
         ];
       };
     };

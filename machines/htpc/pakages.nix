@@ -3,14 +3,14 @@
   nixpkgs.config.allowUnfreePredicate =
     pkg:
     builtins.elem (lib.getName pkg) [
-      "libfprint-2-tod1-goodix"
-      "oraclejre"
+      "nvidia-x11"
+      "nvidia-settings"
+      "nvidia-persistenced"
     ];
   environment.systemPackages = with pkgs; [
     wget
     curl
     pciutils
-    python3    
     inxi
     tree
     mc
@@ -30,12 +30,10 @@
     fzf-zsh
     zsh-fzf-history-search
     fastfetch
-    opentofu
     openssl
-    attic-client
   ];
   environment.gnome.excludePackages = with pkgs; [
-    geary
+    gnome.geary
     epiphany
     gnome-tour
   ];

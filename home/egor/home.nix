@@ -7,13 +7,32 @@
 {
   imports = [
     ./zsh.nix
-    ./modules/bundle.nix
+    ./packages.nix
+    ./firefox-profile
+
+    ../modules/develop
+    ../modules/firefox
+    ../modules/gnome
+    ../modules/virtualisation
+    ../modules/evolution.nix
+    ../modules/flameshot.nix
+    ../modules/gimp.nix
+    ../modules/htop.nix
+    ../modules/libreoffice.nix
+    ../modules/lutris.nix
+    ../modules/telegram.nix
+    ../modules/transmission.nix
+    ../modules/usbimager.nix
+    ../modules/winbox.nix
+    ../modules/wine.nix
+    ../modules/yandex-disk.nix
+    ../modules/yubico.nix
   ];
-  disabledModules = [
-    ./modules/ssh.nix
-    ./modules/vivaldi.nix
-    ./modules/spoofdpi.nix
-  ];
+  # disabledModules = [
+  #   ./modules/ssh.nix
+  #   ./modules/vivaldi.nix
+  #   ./modules/spoofdpi.nix
+  # ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "egor";

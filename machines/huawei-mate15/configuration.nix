@@ -1,8 +1,35 @@
 { pkgs, ... }:
 {
+  networking.hostName = "huawei-mate15";
+
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+
+    ./linux.nix
+    ./env.nix
+    ./pakages.nix
+
+    ../modules/boot/systemd-boot.nix
+    ../modules/hardware/gpu/amd.nix
+    ../modules/hardware/fprintd/goodix.nix
+    ../modules/i18n/ru_RU.nix
+    ../modules/network/nm.nix
+    ../modules/services/yubikey.nix
+    ../modules/time/Europe/Moscow.nix
+    ../modules/users/egor.nix
+    ../modules/virtualisation/virt-manager
+    ../modules/wm/gnome
+    ../modules/appimage.nix
+    ../modules/audio.nix
+    ../modules/bluetooth.nix
+    ../modules/cups.nix
+    ../modules/docker.nix
+    ../modules/flatpak.nix
+    ../modules/git.nix
+    ../modules/gnupg.nix
+    ../modules/nix.nix
+    ../modules/zram.nix
   ];
 
   # disabledModules = [
@@ -18,25 +45,20 @@
       drives = [ "/dev/nvme0n1" ];
     };
   };
+
   powerManagement = {
     enable = true;
     powertop.enable = true;
   };
 
-networking.hostName="nixos-mate16";
   services = {
     fwupd.enable = true;
-
-    # # Enable the X11 windowing system.
-    xserver.enable = true;
 
     # Configure keymap in X11
     # xserver.xkb = {
     #   layout = "us,ru";
     #   options = "grp:win_space_toggle";
     # };
-
-    yubikey-agent.enable = true;
 
     # Enable touchpad support (enabled default in most desktopManager).
     libinput.enable = true;

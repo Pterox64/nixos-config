@@ -13,15 +13,15 @@
 
     shellAliases =
       let
-        flakeDir = "~/git/nixos-config";
+        flakeDir = "~/git/nix";
       in
       {
-        upd = "nix flake update --flake ${flakeDir}";
+        upd = "nix flake update ${flakeDir}";
 
-        rb = "sudo nixos-rebuild switch --flake ${flakeDir}";
-        upg = "sudo nixos-rebuild switch --upgrade --flake ${flakeDir}";
+        rb = "sudo nixos-rebuild switch --flake ${flakeDir}#htpc";
+        upg = "sudo nixos-rebuild switch --upgrade --flake ${flakeDir}#htpc";
 
-        hms = "home-manager switch --flake ${flakeDir}";
+        hms = "home-manager switch --flake ${flakeDir}#tanya";
 
         ll = "ls -alF";
         ff = "fastfetch";
@@ -31,11 +31,7 @@
       enable = true;
       plugins = [
         "fzf"
-        "git"
-        "python"
         "man"
-        "docker-compose"
-        "docker"
       ];
       theme = "agnoster";
     };

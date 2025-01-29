@@ -1,14 +1,13 @@
 let
-  extraconfig = builtins.readFile ../user.js;
+  extraconfig = builtins.readFile ../../modules/firefox/profiles/user.js;
 in
 {
   imports = [
     ./bookmarks.nix
-    ./containers.nix
     ./extensions.nix
   ];
 
-  programs.firefox.profiles.egor = {
+  programs.firefox.profiles.tanya = {
     name = "Личный";
     id = 0;
     extraConfig = extraconfig;

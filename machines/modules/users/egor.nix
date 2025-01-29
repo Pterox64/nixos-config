@@ -1,5 +1,6 @@
 { pkgs, lib, ... }:
 {
+  programs.zsh.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.mutableUsers = true;
   users.defaultUserShell = pkgs.zsh;

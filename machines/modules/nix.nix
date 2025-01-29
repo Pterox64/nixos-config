@@ -1,4 +1,5 @@
-{  nix = {
+{
+  nix = {
     settings = {
       allowed-users = [ "@wheel" ];
       trusted-users = [
@@ -15,4 +16,5 @@
       dates = "weekly";
       options = "--delete-older-than 30d";
     };
-  };}
+  };
+}
