@@ -13,7 +13,7 @@
 
     shellAliases =
       let
-        flakeDir = "~/git/nix";
+        flakeDir = "~/git/nixos-config";
       in
       {
         upd = "nix flake update ${flakeDir}";

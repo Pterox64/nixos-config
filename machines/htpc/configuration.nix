@@ -4,6 +4,7 @@
 
 { pkgs, ... }:
 {
+  networking.hostName = "htpc";
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -25,6 +26,7 @@
     ../modules/appimage.nix
     ../modules/audio.nix
     ../modules/flatpak.nix
+    ../modules/git.nix
     ../modules/gnupg.nix
     ../modules/nix.nix
     ../modules/zram.nix
@@ -47,7 +49,7 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.wayland = false;
+  services.xserver.displayManager.gdm.wayland = false;
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "tanya";
 
@@ -83,7 +85,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
