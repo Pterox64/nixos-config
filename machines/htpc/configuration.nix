@@ -11,6 +11,23 @@
     ./linux.nix
     ./env.nix
     ./pakages.nix
+
+    ../modules/boot/systemd-boot.nix
+    ../modules/i18n/ru_RU.nix
+    ../modules/network/nm.nix
+    ../modules/hardware/gpu/nvidia.nix
+    ../modules/time/Europe/Moscow.nix
+
+    ../modules/users/tanya.nix
+
+    ../modules/wm/gnome
+
+    ../modules/appimage.nix
+    ../modules/audio.nix
+    ../modules/flatpak.nix
+    ../modules/gnupg.nix
+    ../modules/nix.nix
+    ../modules/zram.nix
   ];
 
   hardware.enableRedistributableFirmware = true;
@@ -22,7 +39,7 @@
 
   system.autoUpgrade.enable = true;
 
-  nix.settings.allowed-users = [ "@wheel" ];
+  # nix.settings.allowed-users = [ "@wheel" ];
 
   services.fwupd.enable = true;
 
@@ -30,16 +47,15 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.wayland = false;
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "tanya";
 
   # Configure keymap in X11
-  # services.xserver.xkb = {
-  #   layout = "us,ru";
-  #   options = "grp:win_space_toggle";
-  # };
+  services.xserver.xkb = {
+    layout = "us,ru";
+    options = "grp:win_space_toggle";
+  };
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -50,15 +66,15 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  };
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  # nix.gc = {
+  #   automatic = true;
+  #   dates = "weekly";
+  #   options = "--delete-older-than 30d";
+  # };
+  # nix.settings.experimental-features = [
+  #   "nix-command"
+  #   "flakes"
+  # ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
