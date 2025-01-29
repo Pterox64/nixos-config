@@ -9,6 +9,17 @@
     ./zsh.nix
     ./packages.nix
 
+    ./firefox-profile
+
+    ../modules/firefox
+
+    ../modules/evolution.nix
+    ../modules/gnome
+    ../modules/htop.nix
+    ../modules/libreoffice.nix
+    ../modules/telegram.nix
+    ../modules/transmission.nix
+    ../modules/usbimager.nix
   ];
   # disabledModules = [
   #   # ./modules/firefox.nix
