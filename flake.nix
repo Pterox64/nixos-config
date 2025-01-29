@@ -15,9 +15,11 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    attic.url = "github:zhaofengli/attic";
   };
   outputs =
     {
+      attic,
       nixpkgs,
       nixos-hardware,
       agenix,
@@ -46,12 +48,22 @@
       nixosConfigurations.htpc = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./nixos/configuration.nix
+          ./machines/htpc/configuration.nix
           nixos-hardware.nixosModules.common-hidpi
           nixos-hardware.nixosModules.common-pc
           nixos-hardware.nixosModules.common-pc-ssd
           nixos-hardware.nixosModules.common-cpu-intel-cpu-only
         ];
+      };
+      nixosConfigurations.server_attic = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules =
+          [ ./machines/server-attic/configuration.nix ]
+          ++ [ ./machines/server-attic/utilities.nix ]
+          ++ [
+            attic.nixosModules.atticd
+            ./machines/server-attic/attic.nix
+          ];
       };
       homeConfigurations.egor = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { inherit system; };
