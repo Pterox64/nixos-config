@@ -16,6 +16,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     attic.url = "github:zhaofengli/attic";
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.2";
+      # Optional but recommended to limit the size of your system closure.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
@@ -25,6 +30,7 @@
       agenix,
       home-manager,
       nur,
+      lanzaboote,
       ...
     }:
     let
@@ -36,6 +42,7 @@
           inherit system;
           modules = [
             ./machines/huawei-mate15/configuration.nix
+            lanzaboote.nixosModules.lanzaboote
             agenix.nixosModules.default
             { environment.systemPackages = [ agenix.packages.${system}.default ]; }
             nixos-hardware.nixosModules.common-hidpi
