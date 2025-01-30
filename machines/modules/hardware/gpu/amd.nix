@@ -16,6 +16,10 @@
     glxinfo
     mesa # Библиотеки OpenGL
   ];
+  # Дополнительные настройки для улучшения производительности
+  boot.kernelParams = [
+    "amdgpu.sg_display=0" # Оптимизация для некоторых моделей AMD
+  ];
   environment.variables = {
     AMD_VULKAN_ICD = "RADV"; # Использование RADV вместо AMDVLK
     RADV_PERFTEST = "gpl"; # Включение расширенных функций Vulkan
