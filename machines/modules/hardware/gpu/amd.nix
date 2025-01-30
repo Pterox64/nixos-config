@@ -13,6 +13,7 @@
   # Установка необходимых пакетов
   environment.systemPackages = with pkgs; [
     vulkan-tools # Для проверки Vulkan
+    glxinfo
     mesa # Библиотеки OpenGL
   ];
   environment.variables = {
