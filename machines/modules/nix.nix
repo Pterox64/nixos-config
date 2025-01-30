@@ -11,6 +11,11 @@
         "flakes"
       ];
     };
+    extraOptions = ''
+      keep-build-log = true
+      keep-outputs = true
+      keep-derivations = true
+    '';
     gc = {
       automatic = true;
       dates = "weekly";
