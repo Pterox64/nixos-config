@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   hardware.bluetooth = {
     enable = true;
@@ -8,6 +9,7 @@
         Experimental = true;
       };
     };
+    package = pkgs.bluez;
   };
 
   services.blueman.enable = true;
