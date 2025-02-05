@@ -9,5 +9,6 @@
     obsidian
     keepass
     tilix
+    zbar
   ];
 }
