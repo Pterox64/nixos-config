@@ -19,30 +19,36 @@
                 mountpoint = "/boot";
               };
             };
-            root = {
+            luks = {
               end = "-32G";
               content = {
-                type = "btrfs";
-                extraArgs = [ "-f" ]; # Override existing partition
-                subvolumes = {
-                  # Subvolume name is different from mountpoint
-                  "/rootfs" = {
-                    mountpoint = "/";
-                  };
-                  # Subvolume name is the same as the mountpoint
-                  "/home" = {
-                    mountOptions = [ "compress=zstd" ];
-                    mountpoint = "/home";
-                  };
-                  # Sub(sub)volume doesn't need a mountpoint as its parent is mounted
-                  "/home/egor" = { };
-                  # Parent is not mounted so the mountpoint must be set
-                  "/nix" = {
-                    mountOptions = [
-                      "compress=zstd"
-                      "noatime"
-                    ];
-                    mountpoint = "/nix";
+                type = "luks";
+                name = "crypted";
+                # disable settings.keyFile if you want to use interactive password entry
+                #passwordFile = "/tmp/secret.key"; # Interactive
+                settings = {
+                  allowDiscards = true;
+                  keyFile = "/tmp/secret.key";
+                };
+                # additionalKeyFiles = [ "/tmp/additionalSecret.key" ];
+                content = {
+                  type = "btrfs";
+                  extraArgs = [ "-f" ]; # Override existing partition
+                  subvolumes = {
+                    # Subvolume name is different from mountpoint
+                    "/rootfs" = { mountpoint = "/"; };
+                    # Subvolume name is the same as the mountpoint
+                    "/home" = {
+                      mountOptions = [ "compress=zstd" ];
+                      mountpoint = "/home";
+                    };
+                    # Sub(sub)volume doesn't need a mountpoint as its parent is mounted
+                    "/home/egor" = { };
+                    # Parent is not mounted so the mountpoint must be set
+                    "/nix" = {
+                      mountOptions = [ "compress=zstd" "noatime" ];
+                      mountpoint = "/nix";
+                    };
                   };
                 };
               };
