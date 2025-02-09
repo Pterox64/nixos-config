@@ -9,6 +9,7 @@
   environment.systemPackages = with pkgs; [
     attic-client
     cmake
+    cryptsetup
     curl
     wget
     pciutils
