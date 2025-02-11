@@ -15,5 +15,6 @@
       "libvirtd"
     ];
     useDefaultShell = true;
+    initialPassword = "!12345678";
   };
 }
