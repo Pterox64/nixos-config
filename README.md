@@ -18,10 +18,10 @@ sudo nix --experimental-features "nix-command flakes" run github:nix-community/d
  cd nixos-config
  sudo rm -f machines/<name>/hardware-configuration.nix
  sudo cp /mnt/etc/nixos/hardware-configuration.nix  machines/<name>/
- sudo nixos-install --flake .#huawei_mate15
+ sudo nixos-install --flake .#<name>
  sudo nixos-enter
  chown -R <user>:users /home/<user>/git
  sbctl create-keys
  sbctl enroll-keys --microsoft
- nixos-rebuild boot --flake /home/<user>/git/nixos-config#huawei_mate15
+ nixos-rebuild boot --flake /home/<user>/git/nixos-config#<name>
  ```
