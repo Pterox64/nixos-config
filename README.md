@@ -21,7 +21,12 @@ sudo nix --experimental-features "nix-command flakes" run github:nix-community/d
  sudo nixos-install --flake .#<name>
  sudo nixos-enter
  chown -R <user>:users /home/<user>/git
- sbctl create-keys
- sbctl enroll-keys --microsoft
- nixos-rebuild boot --flake /home/<user>/git/nixos-config#<name>
  ```
+
+> Если используется загрузчик **Lanzaboote** необходимо совершить дополнительные действия:
+>
+> ```bash
+> sbctl create-keys
+> sbctl enroll-keys --microsoft
+> nixos-rebuild boot --flake /home/<user>/git/nixos-config#<name>
+> ```
