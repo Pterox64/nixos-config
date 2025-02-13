@@ -1,2 +1,4 @@
 **/result/**/*
+**/secrets/**/*
 secrets/secrets.nix
+*.jwe
