@@ -33,6 +33,7 @@
     fastfetch
     opentofu
     openssl
+    clevis
   ];
   environment.gnome.excludePackages = with pkgs; [
     geary

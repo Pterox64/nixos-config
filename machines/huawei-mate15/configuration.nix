@@ -37,6 +37,12 @@
   #   ./modules/java.nix
   # ];
 
+  boot.initrd.clevis = {
+    enable = true;
+    devices."/dev/disk/by-uuid/ece7d7db-1bc8-41e8-a343-e0952d396ecc".secretFile =
+      "./secrets/nvme0n1p2.jwe";
+  };
+
   hardware = {
     enableRedistributableFirmware = true;
     cpu.amd.ryzen-smu.enable = true;
