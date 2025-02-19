@@ -73,6 +73,10 @@
               ./machines/server-attic/attic.nix
             ];
         };
+        wsl = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [ ./machines/wsl/configuration.nix ];
+        };
       };
 
       homeConfigurations = {
