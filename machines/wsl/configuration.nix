@@ -8,11 +8,11 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [
-    # include NixOS-WSL modules
-    <nixos-wsl/modules>
-    <home-manager/nixos>
-  ];
+#  imports = [
+#    # include NixOS-WSL modules
+#    <nixos-wsl/modules>
+#    <home-manager/nixos>
+#  ];
 
   time.timeZone = "Europe/Moscow";
   services.timesyncd.enable = true;

@@ -2,6 +2,7 @@
   description = "Home configurations";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
@@ -26,6 +27,7 @@
     {
       attic,
       nixpkgs,
+      nixos-wsl,
       nixos-hardware,
       agenix,
       home-manager,
@@ -75,7 +77,11 @@
         };
         wsl = nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [ ./machines/wsl/configuration.nix ];
+          modules = [ 
+            ./machines/wsl/configuration.nix
+            nixos-wsl.nixosModules.default
+            home-manager.nixosModules.home-manager
+          ];
         };
       };
 
