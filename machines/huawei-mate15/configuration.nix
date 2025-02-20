@@ -39,8 +39,7 @@
 
   boot.initrd.clevis = {
     enable = true;
-    devices."/dev/disk/by-uuid/ece7d7db-1bc8-41e8-a343-e0952d396ecc".secretFile =
-      "./secrets/nvme0n1p2.jwe";
+    devices."crypted".secretFile = "./secrets/nvme0n1p2.jwe";
   };
 
   hardware = {
