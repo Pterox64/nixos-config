@@ -63,6 +63,7 @@
     fzf
     fzf-zsh
     zsh-fzf-history-search
+    nixfmt-rfc-style
   ];
 
   virtualisation.docker.enable = true;
