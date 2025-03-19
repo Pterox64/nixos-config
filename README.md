@@ -30,3 +30,43 @@ sudo nix --experimental-features "nix-command flakes" run github:nix-community/d
 > sbctl enroll-keys --microsoft
 > nixos-rebuild boot --flake /home/<user>/git/nixos-config#<name>
 > ```
+
+## Шифрование секретов
+
+### Подготовка
+
+```bash
+nix-shell -p sops age
+```
+
+### Создание Age ключа
+
+sops-nix использует Age для шифрования. Создайте Age ключ:
+
+1. Сгенерируйте новый Age ключ:
+
+   ```bash
+   age-keygen -o key.txt
+   ```
+
+1. Сохраните публичный ключ (он понадобится для шифрования):
+
+   ```bash
+   cat key.txt
+   ```
+
+   Скопируйте строку, начинающуюся с age1....
+
+1. Поместите приватный ключ в безопасное место (например, /var/lib/sops-nix/key.txt):
+
+   ```bash
+   sudo mkdir -p /var/lib/sops-nix
+   sudo mv key.txt /var/lib/sops-nix/key.txt
+   sudo chmod 600 /var/lib/sops-nix/key.txt
+   ```
+
+### Шифруем секреты
+
+```bash
+sops --encrypt --in-place secrets.yaml
+```

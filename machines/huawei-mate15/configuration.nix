@@ -37,10 +37,17 @@
   #   ./modules/java.nix
   # ];
 
-  boot.initrd.clevis = {
-    enable = true;
-    devices."crypted".secretFile = "./secrets/nvme0n1p2.jwe";
+  sops = {
+    defaultSopsFile = ../../secrets.yaml;
+    age.keyFile = "/var/lib/sops-nix/key.txt";
+    secrets."machines/huawei-mate15/clevis/token" = { };
   };
+
+  # boot.initrd.clevis = {
+  #   enable = true;
+  #   # devices."crypted".secretFile = "secrets/nvme0n1p2.jwe";
+  #   devices."crypted".secretFile = "/run/secrets/machines/huawei-mate15/clevis/token";
+  # };
 
   hardware = {
     enableRedistributableFirmware = true;
