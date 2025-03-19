@@ -22,6 +22,7 @@
       # Optional but recommended to limit the size of your system closure.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix.url = "github:Mic92/sops-nix";
   };
   outputs =
     {
@@ -33,6 +34,7 @@
       home-manager,
       nur,
       lanzaboote,
+      sops-nix,
       ...
     }:
     let
@@ -46,6 +48,7 @@
             ./machines/huawei-mate15/configuration.nix
             lanzaboote.nixosModules.lanzaboote
             agenix.nixosModules.default
+            sops-nix.nixosModules.sops
             { environment.systemPackages = [ agenix.packages.${system}.default ]; }
             nixos-hardware.nixosModules.common-hidpi
             nixos-hardware.nixosModules.common-pc-laptop
@@ -77,7 +80,7 @@
         };
         wsl = nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [ 
+          modules = [
             ./machines/wsl/configuration.nix
             nixos-wsl.nixosModules.default
             home-manager.nixosModules.home-manager
