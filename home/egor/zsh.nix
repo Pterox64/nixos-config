@@ -8,7 +8,6 @@
 
     initExtra = ''
       complete -C ${pkgs.syncthing}/bin/syncthing syncthing
-      fastfetch
     '';
 
     shellAliases =
