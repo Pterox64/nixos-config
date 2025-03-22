@@ -37,6 +37,8 @@
   #   ./modules/java.nix
   # ];
 
+  boot.initrd.clevis.enable = true;
+
   hardware = {
     enableRedistributableFirmware = true;
     cpu.amd.ryzen-smu.enable = true;
