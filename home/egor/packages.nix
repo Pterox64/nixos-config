@@ -9,5 +9,6 @@
     keepass
     tilix
     zbar
+    rclone
   ];
 }

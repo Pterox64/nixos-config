@@ -20,6 +20,7 @@
     ../modules/htop.nix
     ../modules/libreoffice.nix
     ../modules/lutris.nix
+    ../modules/rclone.nix
     ../modules/telegram.nix
     ../modules/transmission.nix
     ../modules/usbimager.nix
