@@ -53,6 +53,26 @@
     powertop.enable = true;
   };
 
+  # Сервис для восстановления звукового профиля
+  systemd.services.alsactl-restore =
+    let
+      soundCardNumber = 1;
+      script = pkgs.writeShellScript "alsa-cfg" ''
+        ${pkgs.alsa-utils}/bin/amixer -c ${toString soundCardNumber} sset 'Right Headphone Mixer Right DAC' on
+        ${pkgs.alsa-utils}/bin/amixer -c ${toString soundCardNumber} sset 'Left Headphone Mixer Left DAC' on
+      '';
+    in
+    {
+      description = "Restore ALSA settings";
+      wantedBy = [ "multi-user.target" ];
+      after = [ "sound.target" ];
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = "${script}";
+        RemainAfterExit = true;
+      };
+    };
+
   services = {
     fwupd.enable = true;
 
