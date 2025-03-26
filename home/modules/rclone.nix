@@ -29,5 +29,6 @@
     in
     {
       "rclone-mount-gdrive-pterox64" = Service { remote = "gdrive-pterox64"; };
+      "rclone-mount-yd-pterox.ru" = Service { remote = "yd-pterox.ru"; };
     };
 }
