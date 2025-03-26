@@ -9,10 +9,10 @@
     ./zsh.nix
     ./packages.nix
     ./firefox-profile
+    ./gnome
 
     ../modules/develop
     ../modules/firefox
-    ../modules/gnome
     ../modules/virtualisation
     ../modules/evolution.nix
     ../modules/flameshot.nix
