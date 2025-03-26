@@ -7,7 +7,6 @@
     nekoray
     obsidian
     keepass
-    tilix
     zbar
     rclone
   ];
