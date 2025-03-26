@@ -10,6 +10,7 @@
     ./packages.nix
     ./firefox-profile
     ./gnome
+    ./kitty
 
     ../modules/develop
     ../modules/firefox
@@ -22,7 +23,6 @@
     ../modules/lutris.nix
     ../modules/rclone.nix
     ../modules/telegram.nix
-    ../modules/tilix.nix
     ../modules/transmission.nix
     ../modules/usbimager.nix
     ../modules/winbox.nix
