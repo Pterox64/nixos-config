@@ -27,7 +27,6 @@
     ../modules/usbimager.nix
     ../modules/winbox.nix
     ../modules/wine.nix
-    ../modules/yandex-disk.nix
     ../modules/yubico.nix
   ];
   # disabledModules = [
