@@ -14,10 +14,13 @@ with lib.hm.gvariant;
       favorite-apps = [
         "org.gnome.Calendar.desktop"
         "org.gnome.Music.desktop"
-        "org.gnome.Nautilus.desktop"
-        "com.gexperts.Tilix.desktop"
+        "kitty.desktop"
         "code.desktop"
+        "org.gnome.Nautilus.desktop"
+        "bitwarden.desktop"
+        "org.telegram.desktop.desktop"
         "firefox.desktop"
+        "org.gnome.Evolution.desktop"
       ];
       enabled-extensions = [
         "system-monitor@gnome-shell-extensions.gcampax.github.com"
@@ -29,30 +32,13 @@ with lib.hm.gvariant;
         "appindicatorsupport@rgcjonas.gmail.com"
       ];
     };
-    "org/gnome/shell/weather" = {
-      automatic-location = true;
-      # locations = [
-      #   (mkVariant [
-      #     (mkUint32 2)
-      #     (mkVariant [
-      #       "Moscow"
-      #       "UUWW"
-      #       true
-      #       [
-      #         (mkTuple [
-      #           0.9712757287348442
-      #           0.6504260403943176
-      #         ])
-      #       ]
-      #       [
-      #         (mkTuple [
-      #           0.9730598392028181
-      #           0.6565153021683081
-      #         ])
-      #       ]
-      #     ])
-      #   ])
-      # ];
+    "org/gnome/mutter" = {
+      dynamic-workspaces = true;
+    };
+    "org/gnome/settings-daemon/plugins/power" = {
+      power-button-action = "hibernate";
+      sleep-inactive-battery-timeout = 300;
+      sleep-inactive-battery-type = "hibernate";
     };
   };
 }
