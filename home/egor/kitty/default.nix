@@ -20,6 +20,7 @@
       };
       themeFile = "Gnome-ish_gray-on-black";
       settings = {
+        term = "xterm-256color";
         update_check_interval = 0;
         scrollback_lines = 100000;
         linux_display_server = "wayland";
