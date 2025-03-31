@@ -13,6 +13,7 @@ with lib.hm.gvariant;
     "org/gnome/shell" = {
       favorite-apps = [
         "org.gnome.Calendar.desktop"
+        "org.gnome.Evolution.desktop"
         "org.gnome.Music.desktop"
         "kitty.desktop"
         "code.desktop"
@@ -20,7 +21,6 @@ with lib.hm.gvariant;
         "bitwarden.desktop"
         "org.telegram.desktop.desktop"
         "firefox.desktop"
-        "org.gnome.Evolution.desktop"
       ];
       enabled-extensions = [
         "system-monitor@gnome-shell-extensions.gcampax.github.com"
@@ -34,11 +34,6 @@ with lib.hm.gvariant;
     };
     "org/gnome/mutter" = {
       dynamic-workspaces = true;
-    };
-    "org/gnome/settings-daemon/plugins/power" = {
-      power-button-action = "hibernate";
-      sleep-inactive-battery-timeout = 300;
-      sleep-inactive-battery-type = "hibernate";
     };
   };
 }
