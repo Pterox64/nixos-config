@@ -15,6 +15,7 @@ with lib.hm.gvariant;
         "org.gnome.Calendar.desktop"
         "org.gnome.Evolution.desktop"
         "org.gnome.Music.desktop"
+        "org.gnome.TextEditor.desktop"
         "kitty.desktop"
         "code.desktop"
         "org.gnome.Nautilus.desktop"
@@ -34,6 +35,12 @@ with lib.hm.gvariant;
     };
     "org/gnome/mutter" = {
       dynamic-workspaces = true;
+    };
+    "org/gnome/desktop/wm/keybindings" = {
+      switch-applications = [ ];
+      switch-applications-backward = [ ];
+      switch-windows = [ "<Alt>Tab" ];
+      switch-windows-backward = [ "<Shift><Alt>Tab" ];
     };
   };
 }
