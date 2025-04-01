@@ -1,5 +1,8 @@
 { pkgs, config, ... }:
 {
+  home.packages = [
+    pkgs.zsh-nix-shell
+  ];
   programs.zsh = {
     enable = true;
     enableCompletion = true;
