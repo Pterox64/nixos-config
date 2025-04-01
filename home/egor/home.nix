@@ -6,6 +6,7 @@
 }:
 {
   imports = [
+    ./autostart.nix
     ./zsh.nix
     ./packages.nix
     ./firefox-profile
