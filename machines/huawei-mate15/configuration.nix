@@ -39,6 +39,10 @@
 
   boot.initrd.clevis.enable = true;
 
+  boot.kernelParams = [
+    "resume=/dev/nvme0n1p3" # Говорим ядру, что гибернация идёт в дисковый swap
+  ];
+
   hardware = {
     enableRedistributableFirmware = true;
     cpu.amd.ryzen-smu.enable = true;
@@ -72,6 +76,11 @@
         RemainAfterExit = true;
       };
     };
+
+  systemd.sleep.extraConfig = ''
+    HibernateMode=shutdown
+    HibernateState=disk
+  '';
 
   services = {
     fwupd.enable = true;
