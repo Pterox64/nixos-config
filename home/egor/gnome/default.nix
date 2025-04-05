@@ -42,5 +42,10 @@ with lib.hm.gvariant;
       switch-windows = [ "<Alt>Tab" ];
       switch-windows-backward = [ "<Shift><Alt>Tab" ];
     };
+    "org/gnome/settings-daemon/plugins/power" = {
+      power-button-action = "hibernate";
+      sleep-inactive-battery-timeout = 450;
+      sleep-inactive-battery-type = "hibernate";
+    };
   };
 }
