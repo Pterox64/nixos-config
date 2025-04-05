@@ -47,5 +47,9 @@ with lib.hm.gvariant;
       sleep-inactive-battery-timeout = 450;
       sleep-inactive-battery-type = "hibernate";
     };
+    "org/gnome/desktop/wm/preferences" = {
+      button-layout = "appmenu:minimize,maximize,close";
+      resize-with-right-button = false;
+    };
   };
 }
