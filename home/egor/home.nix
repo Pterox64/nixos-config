@@ -93,7 +93,7 @@
   # services.home-manager.autoUpgrade.frequency = "weekly";
 
   rcloneMounts.enable = true;
-  rcloneMounts.mountPoint = "%h/Sync";
+  rcloneMounts.mountPointPrefix = "%h/Sync";
   rcloneMounts.remotes = [
     "gdrive-pterox64"
     "gdrive-eplatohin-eteron-ru"

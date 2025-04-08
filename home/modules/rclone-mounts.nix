@@ -21,7 +21,7 @@ in
       description = "List of remote storage names to mount";
     };
 
-    mountPoint = mkOption {
+    mountPointPrefix = mkOption {
       type = types.str;
       default = "/tmp";
       description = "Prefix path for mount points";
@@ -52,16 +52,16 @@ in
           Service = {
             Type = "notify";
             Restart = "on-failure";
-            ExecStartPre = "${pkgs.coreutils}/bin/mkdir -p ${config.rcloneMounts.mountPoint}/${remote}";
+            ExecStartPre = "${pkgs.coreutils}/bin/mkdir -p ${config.rcloneMounts.mountPointPrefix}/${remote}";
             ExecStart =
               lib.concatStringsSep " " [
                 "${pkgs.rclone}/bin/rclone mount"
                 "${remote}:"
-                "${config.rcloneMounts.mountPoint}/${remote}"
+                "${config.rcloneMounts.mountPointPrefix}/${remote}"
               ]
               + " "
               + lib.concatStringsSep " " config.rcloneMounts.extraOptions;
-            ExecStop = "${pkgs.fuse}/bin/fusermount -u ${config.rcloneMounts.mountPoint}/${remote}";
+            ExecStop = "${pkgs.fuse}/bin/fusermount -u ${config.rcloneMounts.mountPointPrefix}/${remote}";
           };
         };
       }) config.rcloneMounts.remotes
