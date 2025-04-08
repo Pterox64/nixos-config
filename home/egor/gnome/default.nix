@@ -51,5 +51,32 @@ with lib.hm.gvariant;
       button-layout = "appmenu:minimize,maximize,close";
       resize-with-right-button = false;
     };
+    "org/gnome/desktop/input-sources" = {
+      mru-sources = [
+        (mkTuple [
+          "xkb"
+          "ru"
+        ])
+        (mkTuple [
+          "xkb"
+          "us"
+        ])
+      ];
+      per-window = true;
+      sources = [
+        (mkTuple [
+          "xkb"
+          "us"
+        ])
+        (mkTuple [
+          "xkb"
+          "ru"
+        ])
+      ];
+      xkb-options = [
+        "lv3:rwin_switch"
+        "compose:ralt"
+      ];
+    };
   };
 }
