@@ -8,6 +8,7 @@ with lib.hm.gvariant;
     gnomeExtensions.bluetooth-battery-meter
     gnomeExtensions.syncthing-indicator
     gnomeExtensions.pano
+    gnomeExtensions.gsconnect
   ];
   dconf.settings = {
     "org/gnome/shell" = {
@@ -31,6 +32,7 @@ with lib.hm.gvariant;
         "pano@elhan.io"
         "Bluetooth-Battery-Meter@maniacx.github.com"
         "appindicatorsupport@rgcjonas.gmail.com"
+        "gsconnect@andyholmes.github.io"
       ];
     };
     "org/gnome/mutter" = {
