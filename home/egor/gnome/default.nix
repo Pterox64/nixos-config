@@ -78,5 +78,13 @@ with lib.hm.gvariant;
         "compose:ralt"
       ];
     };
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      control-center = [ "Tools" ];
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      binding = "<Super>Return";
+      command = "${pkgs.kitty}/bin/kitty --single-instance";
+      name = "Terminal";
+    };
   };
 }
