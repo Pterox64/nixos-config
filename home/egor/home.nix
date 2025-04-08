@@ -9,7 +9,6 @@
     ./autostart.nix
     ./zsh.nix
     ./packages.nix
-    ./rclone.nix
     ./firefox-profile
     ./gnome
     ./kitty
@@ -23,6 +22,7 @@
     ../modules/htop.nix
     ../modules/libreoffice.nix
     ../modules/lutris.nix
+    ../modules/rclone-mounts.nix
     ../modules/telegram.nix
     ../modules/transmission.nix
     ../modules/usbimager.nix
@@ -91,4 +91,12 @@
   services.gnome-keyring.enable = true;
   # services.home-manager.autoUpgrade.enable = true;
   # services.home-manager.autoUpgrade.frequency = "weekly";
+
+  rcloneMounts.enable = true;
+  rcloneMounts.mountPoint = "%h/Sync";
+  rcloneMounts.remotes = [
+    "gdrive-pterox64"
+    "gdrive-eplatohin-eteron-ru"
+    "yd-pterox.ru"
+  ];
 }
