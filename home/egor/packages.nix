@@ -9,5 +9,7 @@
     keepass
     zbar
     rclone
+    vlc
+    vlc-bittorrent
   ];
 }
