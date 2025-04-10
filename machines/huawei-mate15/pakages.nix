@@ -8,18 +8,15 @@
     ];
   environment.systemPackages = with pkgs; [
     attic-client
-    cmake
     cryptsetup
     curl
     wget
     pciutils
-    python3
     inxi
     tree
     mc
     nano
     tmux
-    gnumake
     lshw
     usbutils
     nixfmt-rfc-style
@@ -31,7 +28,6 @@
     fzf-zsh
     zsh-fzf-history-search
     fastfetch
-    opentofu
     openssl
     clevis
   ];
