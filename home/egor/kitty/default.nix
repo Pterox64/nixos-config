@@ -6,7 +6,7 @@
   programs.kitty =
     let
       bgImage = pkgs.stdenv.mkDerivation {
-        name = "my-image";
+        name = "miku-image";
         src = ./img/miku.png;
         phases = [ "installPhase" ];
         installPhase = "cp $src $out";
