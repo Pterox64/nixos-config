@@ -1,6 +1,11 @@
 { pkgs, ... }:
 {
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_13;
+  boot.kernelModules = [
+    "overlay"
+    "fuse"
+  ];
+  boot.blacklistedKernelModules = [ "aufs" ];
   # boot.kernelPackages =
   #   let
   #     linux_huawei = pkgs.callPackage ../kernel/linux-6.1.3-huawei.nix { };
