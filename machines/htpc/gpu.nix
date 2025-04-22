@@ -3,6 +3,14 @@
   # boot.initrd.kernelModules = [ "nvidia" ];
   # boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
 
+  nixpkgs.config = {
+    # Разрешить несвободные пакеты
+    allowUnfree = true;
+
+    # Принять лицензию NVIDIA
+    nvidia.acceptLicense = true;
+  };
+
   # Enable OpenGL
   hardware.graphics = {
     enable = true;
