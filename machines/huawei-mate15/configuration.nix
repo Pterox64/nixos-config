@@ -87,6 +87,8 @@
   services = {
     fwupd.enable = true;
 
+    samba-wsdd.enable = true;
+
     avahi.nssmdns4 = true;
     avahi.nssmdns6 = true;
 
