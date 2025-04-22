@@ -57,6 +57,8 @@
     powertop.enable = true;
   };
 
+  security.rtkit.enable = true;
+
   # Сервис для восстановления звукового профиля
   systemd.services.alsactl-restore =
     let
