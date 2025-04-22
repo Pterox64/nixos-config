@@ -65,7 +65,7 @@
     "nouveau.modeset=1" # Включить modesetting
   ];
   environment.systemPackages = with pkgs; [
-    nouveau-dmi
+    # nouveau-dmi
     mesa-demos # Для тестов (glxinfo, glxgears)
   ];
 }
