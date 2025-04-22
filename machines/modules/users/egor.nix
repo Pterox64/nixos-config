@@ -13,7 +13,6 @@
       "networkmanager"
       "docker"
       "libvirtd"
-      "fuse"
       "video"
     ];
     useDefaultShell = true;

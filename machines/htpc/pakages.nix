@@ -31,6 +31,7 @@
     zsh-fzf-history-search
     fastfetch
     openssl
+    fuse3
   ];
   environment.gnome.excludePackages = with pkgs; [
     geary

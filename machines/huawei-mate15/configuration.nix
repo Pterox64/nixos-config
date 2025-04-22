@@ -58,6 +58,17 @@
   };
 
   security.rtkit.enable = true;
+  security.pam.services.gdm.enableGnomeKeyring = true;
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if (action.id == "org.freedesktop.udisks2.filesystem-mount" &&
+          subject.isInGroup("users")) {
+        return polkit.Result.YES;
+      }
+    });
+  '';
+
+  programs.fuse.userAllowOther = true;
 
   # Сервис для восстановления звукового профиля
   systemd.services.alsactl-restore =

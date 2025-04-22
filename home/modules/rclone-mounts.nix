@@ -29,7 +29,10 @@ in
 
     extraOptions = mkOption {
       type = types.listOf types.str;
-      default = [ "--vfs-cache-mode writes" ];
+      default = [
+        "--allow-other"
+        "--vfs-cache-mode writes"
+      ];
       description = "Extra options for rclone mount command";
     };
   };
