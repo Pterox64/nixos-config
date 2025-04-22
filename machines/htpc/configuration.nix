@@ -32,6 +32,16 @@
     ../modules/zram.nix
   ];
 
+  environment.etc = {
+    "polkit-1/rules.d/85-suspend.rules".text = ''
+      polkit.addRule(function(action, subject) {
+        if (action.id == "org.freedesktop.login1.suspend" && subject.isInGroup("users")) {
+          return polkit.Result.YES;
+        }
+      });
+    '';
+  };
+
   hardware.enableRedistributableFirmware = true;
   hardware.sensor.hddtemp.enable = true;
   hardware.sensor.hddtemp.drives = [ "/dev/nvme0n1" ];
