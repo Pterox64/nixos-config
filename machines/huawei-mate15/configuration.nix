@@ -96,10 +96,10 @@
     avahi.nssmdns6 = true;
 
     # Configure keymap in X11
-    # xserver.xkb = {
-    #   layout = "us,ru";
-    #   options = "grp:win_space_toggle";
-    # };
+    xserver.xkb = {
+      layout = "us,ru";
+      options = "grp:win_space_toggle";
+    };
 
     # Enable touchpad support (enabled default in most desktopManager).
     libinput.enable = true;
