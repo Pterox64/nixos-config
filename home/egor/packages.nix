@@ -11,5 +11,6 @@
     rclone
     vlc
     vlc-bittorrent
+    xdg-desktop-portal-gnome
   ];
 }
