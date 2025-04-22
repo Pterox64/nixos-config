@@ -87,6 +87,9 @@
   services = {
     fwupd.enable = true;
 
+    avahi.nssmdns4 = true;
+    avahi.nssmdns6 = true;
+
     # Configure keymap in X11
     # xserver.xkb = {
     #   layout = "us,ru";
