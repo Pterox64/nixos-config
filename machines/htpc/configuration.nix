@@ -11,12 +11,12 @@
 
     ./linux.nix
     ./env.nix
+    ./gpu.nix
     ./pakages.nix
 
     ../modules/boot/systemd-boot.nix
     ../modules/i18n/ru_RU.nix
     ../modules/network/nm.nix
-    # ../modules/hardware/gpu/nvidia.nix
     ../modules/time/Europe/Moscow.nix
 
     ../modules/users/tanya.nix

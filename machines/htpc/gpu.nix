@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
-  boot.initrd.kernelModules = [ "nvidia" ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+  # boot.initrd.kernelModules = [ "nvidia" ];
+  # boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
 
   # Enable OpenGL
   hardware.graphics = {
@@ -34,12 +34,13 @@
     # Only available from driver 515.43.04+
     # Currently alpha-quality/buggy, so false is currently the recommended setting.
     open = false;
+    modesetting.enable = true;
 
     # Enable the Nvidia settings menu,
     # accessible via `nvidia-settings`.
-    nvidiaSettings = true;
+    # nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_470; # Или 390, но лучше 470
   };
 }

@@ -8,10 +8,10 @@
 
     ./linux.nix
     ./env.nix
+    ./gpu.nix
     ./pakages.nix
 
     ../modules/boot/lanzaboote.nix
-    ../modules/hardware/gpu/amd.nix
     ../modules/hardware/fprintd/goodix.nix
     ../modules/i18n/ru_RU.nix
     ../modules/network/nm.nix
