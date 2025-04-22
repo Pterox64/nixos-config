@@ -15,8 +15,11 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    mpv    mplayer
-vlc
-smplayer
+    mpv
+    mplayer
+    vlc
+    smplayer
+    vlc-bittorrent
+    nekoray
   ];
 }
