@@ -42,7 +42,7 @@
     # Only available from driver 515.43.04+
     # Currently alpha-quality/buggy, so false is currently the recommended setting.
     open = false;
-    # modesetting.enable = true;
+    modesetting.enable = true;
 
     # Enable the Nvidia settings menu,
     # accessible via `nvidia-settings`.
