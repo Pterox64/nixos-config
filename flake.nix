@@ -66,6 +66,7 @@
             nixos-hardware.nixosModules.common-pc
             nixos-hardware.nixosModules.common-pc-ssd
             nixos-hardware.nixosModules.common-cpu-intel-cpu-only
+            nixos-hardware.nixosModules.common-gpu-nvidia
           ];
         };
         server_attic = nixpkgs.lib.nixosSystem {
