@@ -13,4 +13,8 @@
   };
 
   services.blueman.enable = true;
+  environment.etc."xdg/blueman/plugins.conf".text = ''
+    [General]
+    disabled-plugins = GameControllerWakelock, DhcpClient, PPPSupport
+  '';
 }
