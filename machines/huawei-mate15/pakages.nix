@@ -10,6 +10,7 @@
     attic-client
     cryptsetup
     curl
+    geocode-glib
     wget
     pciutils
     inxi
