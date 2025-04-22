@@ -87,6 +87,9 @@
   services = {
     fwupd.enable = true;
 
+    dbus.enable = true;
+    dbus.packages = [ pkgs.gnome-keyring ];
+
     samba-wsdd.enable = true;
 
     avahi.nssmdns4 = true;
