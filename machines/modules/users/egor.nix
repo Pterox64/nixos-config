@@ -13,6 +13,8 @@
       "networkmanager"
       "docker"
       "libvirtd"
+      "fuse"
+      "video"
     ];
     useDefaultShell = true;
     initialPassword = "!12345678";
