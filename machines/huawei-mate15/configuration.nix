@@ -29,7 +29,7 @@
     ../modules/git.nix
     ../modules/gnupg.nix
     ../modules/nix.nix
-    ../modules/zram.nix
+    # ../modules/zram.nix
   ];
 
   # disabledModules = [
