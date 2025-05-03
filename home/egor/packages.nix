@@ -7,6 +7,7 @@
     nekoray
     obsidian
     keepass
+    qv2ray
     zbar
     rclone
     vlc
