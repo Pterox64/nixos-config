@@ -37,5 +37,11 @@
       icon = "briefcase";
       color = "purple";
     };
+    eteron_google_admin = {
+      id = 1012;
+      name = "Eteron Google Admin";
+      icon = "briefcase";
+      color = "purple";
+    };
   };
 }
