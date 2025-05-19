@@ -7,6 +7,7 @@
     nekoray
     obsidian
     keepass
+    v2ray
     qv2ray
     zbar
     rclone
