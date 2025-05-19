@@ -3,7 +3,7 @@
   # Дополнительные настройки для улучшения производительности
   boot.kernelParams = [
     "amdgpu.sg_display=0" # Оптимизация для некоторых моделей AMD
-    # "amdgpu.secure_display=0" # Отключаем Secure Display
+    "amdgpu.secure_display=0" # Отключаем Secure Display
   ];
 
   services.xserver.videoDrivers = [ "amdgpu" ];

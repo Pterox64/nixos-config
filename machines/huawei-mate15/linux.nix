@@ -4,4 +4,7 @@
   boot.extraModprobeConfig = ''
     options fuse allow_other
   '';
+  boot.kernelParams = [
+    "i8042.nopnp"
+  ];
 }
