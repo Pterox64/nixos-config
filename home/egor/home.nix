@@ -10,7 +10,7 @@
     ./zsh.nix
     ./packages.nix
     ./firefox-profile
-    ./gnome
+    # ./gnome
     ./kitty
 
     ../modules/develop

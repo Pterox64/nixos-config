@@ -19,7 +19,7 @@
     ../modules/time/Europe/Moscow.nix
     ../modules/users/egor.nix
     ../modules/virtualisation/virt-manager
-    ../modules/wm/gnome
+    ../modules/wm/kde
     ../modules/appimage.nix
     ../modules/audio.nix
     ../modules/bluetooth.nix
