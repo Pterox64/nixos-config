@@ -8,4 +8,5 @@
   services.displayManager.sddm.wayland.enable = true;
 
   services.desktopManager.plasma6.enable = true;
+  security.pam.services.kde.kwallet.enable = true;
 }

@@ -11,6 +11,7 @@
     ./packages.nix
     ./firefox-profile
     # ./gnome
+    ./kde
     ./kitty
 
     ../modules/develop
@@ -88,7 +89,7 @@
   #
 
   services.syncthing.enable = true;
-  services.gnome-keyring.enable = true;
+  # services.gnome-keyring.enable = true;
   # services.home-manager.autoUpgrade.enable = true;
   # services.home-manager.autoUpgrade.frequency = "weekly";
 

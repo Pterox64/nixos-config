@@ -11,6 +11,7 @@
     container-tab-groups
     multi-account-containers
     onetab
+    plasma-integration
     privacy-badger
     qr-code-address-bar
     smartproxy

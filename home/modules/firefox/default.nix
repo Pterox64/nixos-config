@@ -1,19 +1,22 @@
-{ pkgs, home, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+
 let
-  firefox-package = pkgs.firefox.override {
-    nativeMessagingHosts = [
-      pkgs.gnome-browser-connector
-    ];
-  };
+  isPlasma = config.services.desktopManager.plasma6.enable or false;
+  isGnome = config.services.desktopManager.gnome.enable or false;
+  nativeMessaging =
+    (if isPlasma then [ pkgs.kdePackages.plasma-browser-integration ] else [ ])
+    ++ (if isGnome then [ pkgs.gnome-browser-connector ] else [ ]);
 in
 {
-  imports = [
-    ./policies.nix
-  ];
-
   programs.firefox = {
     enable = true;
-    package = firefox-package;
+    package = pkgs.firefox;
+    nativeMessagingHosts = nativeMessaging;
   };
 
   home.sessionVariables = {
