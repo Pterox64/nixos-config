@@ -12,4 +12,5 @@
     konsole # терминал KDE
   ];
   security.pam.services.sddm.kwallet.enable = true;
+  programs.kdeconnect.enable = true;
 }
