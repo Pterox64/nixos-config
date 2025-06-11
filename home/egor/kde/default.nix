@@ -3,6 +3,7 @@
   imports = [
     ./plasmaManager.nix
   ];
+  programs.plasma.enable = true;
   home.packages = with pkgs.kdePackages; [
     kio-gdrive
     kio-fuse
