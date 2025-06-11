@@ -1,11 +1,11 @@
 {
   description = "Home configurations";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur = {
@@ -45,7 +45,35 @@
     }:
     let
       system = "x86_64-linux";
+
+      #   signonOverlay = final: prev: {
+      #     signon-plugin-oauth2 = prev.stdenv.mkDerivation {
+      #       pname = "signon-plugin-oauth2";
+      #       version = "0.25";
+      #       src = prev.fetchFromGitLab {
+      #         owner = "accounts-sso";
+      #         repo = "signon-plugin-oauth2";
+      #         rev = "d759439066f0a34e5ad352ebab0b3bb2790d429e";
+      #         sha256 = "sha256-4oyfxksatR/xZT7UvECfo3je3A77+XOnhTIrxBCEH2c=";
+      #       };
+      #       buildInputs = [
+      #         prev.qtbase
+      #         prev.signond
+      #       ];
+      #       nativeBuildInputs = [
+      #         prev.pkg-config
+      #         prev.qmake
+      #       ];
+      #       INSTALL_ROOT = "\${out}";
+      #       SIGNON_PLUGINS_DIR = "\${placeholder " out "}/lib/signond/plugins";
+      #     };
+      #   };
+
     in
+    #   pkgs = import nixpkgs {
+    #     inherit system;
+    #     overlays = [ signonOverlay ];
+    #   };
     {
       nixosConfigurations = {
         huawei_mate15 = nixpkgs.lib.nixosSystem {

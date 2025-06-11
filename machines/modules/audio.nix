@@ -1,9 +1,8 @@
 { pkgs, ... }:
 {
-  hardware = {
-    firmware = [ pkgs.sof-firmware ];
-    pulseaudio.enable = false;
-  };
+  hardware.firmware = [ pkgs.sof-firmware ];
+
+  services.pulseaudio.enable = false;
 
   services.pipewire = {
     enable = true;

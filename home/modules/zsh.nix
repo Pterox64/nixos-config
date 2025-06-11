@@ -97,7 +97,7 @@ in
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
 
-      initExtra = lib.concatStringsSep "\n" config.zsh.initCmd;
+      initContent = lib.concatStringsSep "\n" config.zsh.initCmd;
 
       shellAliases =
         let
