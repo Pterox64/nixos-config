@@ -16,5 +16,8 @@
     signond
     kmail
     kmail-account-wizard
+    kwallet
+    kwallet-pam
+    signon-kwallet-extension
   ];
 }
