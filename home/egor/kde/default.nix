@@ -1,5 +1,8 @@
 { pkgs, lib, ... }:
 {
+  imports = [
+    ./plasmaManager.nix
+  ];
   programs.kdeconnect.enable = true;
   home.packages = with pkgs.kdePackages; [
     kio-gdrive
