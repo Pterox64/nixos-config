@@ -6,6 +6,7 @@
   ];
   programs.plasma.enable = true;
   home.packages = with pkgs.kdePackages; [
+    plasma-workspace
     kio-gdrive
     kio-fuse
     kio-zeroconf
