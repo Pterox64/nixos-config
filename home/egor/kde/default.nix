@@ -20,5 +20,6 @@
     kwallet
     kwallet-pam
     signon-kwallet-extension
+    yakuake
   ];
 }

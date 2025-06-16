@@ -15,6 +15,9 @@ let
     nekoray = {
       source = "${pkgs.nekoray}/share/applications/nekoray.desktop";
     };
+    yakuake = {
+      source = "${pkgs.kdePackages.yakuake}/share/applications/org.kde.yakuake.desktop";
+    };
   };
 in
 {
