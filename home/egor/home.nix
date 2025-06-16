@@ -12,7 +12,7 @@
     ./firefox-profile
     # ./gnome
     ./kde
-    ./kitty
+    # ./kitty
 
     ../modules/develop
     ../modules/firefox

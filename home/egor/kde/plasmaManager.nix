@@ -2,7 +2,7 @@
   programs.plasma = {
     enable = true;
     shortcuts = {
-      "services/kitty.desktop"."_launch" = "Meta+Return";
+      "services/net.local.xdg-terminal-2.desktop"."_launch" = "Meta+Return";
     };
   };
 }
