@@ -21,6 +21,7 @@
     kwallet
     kwallet-pam
     signon-kwallet-extension
+    kconfig
     yakuake
   ];
 }
