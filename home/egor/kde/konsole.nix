@@ -117,7 +117,7 @@ in
     ColorRandomization=false
     Description=Miku
     FillStyle=Adapt
-    Opacity=0.6
+    Opacity=0.7
     Wallpaper=${bgImage}
     WallpaperFlipType=NoFlip
     WallpaperOpacity=0.4
