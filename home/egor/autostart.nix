@@ -1,9 +1,9 @@
 { pkgs, lib, ... }:
 let
   autostartApps = {
-    flameshot = {
-      source = "${pkgs.flameshot}/share/applications/org.flameshot.Flameshot.desktop";
-    };
+    # flameshot = {
+    #   source = "${pkgs.flameshot}/share/applications/org.flameshot.Flameshot.desktop";
+    # };
     telegram = {
       text =
         builtins.replaceStrings [ "Exec=telegram-desktop -- %u" ] [ "Exec=telegram-desktop -autostart" ]

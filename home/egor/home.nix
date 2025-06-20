@@ -18,7 +18,7 @@
     ../modules/firefox
     ../modules/virtualisation
     ../modules/evolution.nix
-    ../modules/flameshot.nix
+    # ../modules/flameshot.nix
     ../modules/gimp.nix
     ../modules/htop.nix
     ../modules/libreoffice.nix
