@@ -23,7 +23,16 @@
     signon-kwallet-extension
     kconfig
     yakuake
+    kalk
     (pkgs.cheese) # Well, kamoso is marked as broken so...
+    kdialog
+    kauth
+    kdesu
+    kpipewire
     (pkgs.ocs-url)
+    kservice
+    kweather
+    plasma-workspace-wallpapers
+    plasma-firewall
   ];
 }
