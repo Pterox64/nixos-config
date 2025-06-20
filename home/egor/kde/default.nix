@@ -23,5 +23,6 @@
     signon-kwallet-extension
     kconfig
     yakuake
+    (pkgs.cheese) # Well, kamoso is marked as broken so...
   ];
 }
