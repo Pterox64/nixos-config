@@ -1,9 +1,9 @@
 { pkgs, ... }:
+
 {
-  # Дополнительные настройки для улучшения производительности
   boot.kernelParams = [
-    "amdgpu.sg_display=0" # Оптимизация для некоторых моделей AMD
-    "amdgpu.secure_display=0" # Отключаем Secure Display
+    "amdgpu.dc=1"
+    "amdgpu.sg_display=0"
   ];
 
   services.xserver.videoDrivers = [ "amdgpu" ];
@@ -12,23 +12,23 @@
     graphics = {
       enable = true;
       extraPackages = with pkgs; [
-        rocmPackages.clr.icd
-        amdvlk
+        vulkan-tools
+        glxinfo
+        mesa
       ];
-      extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
     };
-    amdgpu.amdvlk.enable = true;
+    amdgpu.amdvlk.enable = false;
   };
+
   environment = {
-    # Установка необходимых пакетов
     systemPackages = with pkgs; [
-      vulkan-tools # Для проверки Vulkan
+      vulkan-tools
       glxinfo
-      mesa # Библиотеки OpenGL
+      mesa
     ];
     variables = {
-      AMD_VULKAN_ICD = "RADV"; # Использование RADV вместо AMDVLK
-      RADV_PERFTEST = "gpl"; # Включение расширенных функций Vulkan
+      AMD_VULKAN_ICD = "RADV";
+      RADV_PERFTEST = "gpl";
     };
   };
 }
