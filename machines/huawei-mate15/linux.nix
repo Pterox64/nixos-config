@@ -3,7 +3,6 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.kernelModules = [
-    "amd_pstate"
     "acpi_cpufreq"
     "powernow-k8"
   ];
@@ -13,9 +12,16 @@
   boot.kernelParams = [
     "amd_pstate=active"
     "i8042.nopnp"
+    "iommu=soft" # помогает при проблемах с PCIe
+    "processor.max_cstate=5" # ограничивает переходы CPU в глубокие C‑states
+    "amdgpu.dcdebugmask=0x10" # выключает PSR
+    "mem_sleep_default=deep" # классичесий S3 – надёжнее для AMD
+    "tsc=unstable"
   ];
 
-  powerManagement.cpuFreqGovernor = "schedutil";
+  systemd.services.systemd-suspend.environment.SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = "false"; # предотвращает некорректный возврат из режима заморозки.
+
+  # powerManagement.cpuFreqGovernor = "schedutil";
   services.power-profiles-daemon.enable = true;
   hardware.cpu.amd.updateMicrocode = true;
 
