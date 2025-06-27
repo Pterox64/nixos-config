@@ -1,73 +1,127 @@
+# home-rclone-mounts.nix — Home-Manager module for rclone mounts with suspend/hibernate handling
 {
-  config,
   lib,
   pkgs,
+  config,
   ...
 }:
+
 let
-  inherit (lib) types mkEnableOption mkOption;
+  cfg = config.home.rcloneMounts;
+  home = config.home.homeDirectory;
 in
 {
-  options.rcloneMounts = {
-    enable = mkEnableOption "Enable rclone mounts";
+  options.home.rcloneMounts = {
+    enable = lib.mkEnableOption ''Enable automatic rclone mounts.'';
 
-    remotes = mkOption {
-      type = types.listOf types.str;
+    remotes = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
       default = [ ];
       example = [
         "<Name of remote1>"
         "<Name of remote2>"
       ];
-      description = "List of remote storage names to mount";
+      description = ''List of rclone remote names (as in rclone.conf) to mount.'';
     };
 
-    mountPointPrefix = mkOption {
-      type = types.str;
-      default = "/tmp";
-      description = "Prefix path for mount points";
+    mountBase = lib.mkOption {
+      type = lib.types.str;
+      default = "${home}/Sync";
+      description = ''Base directory for mounts; each remote will be under $mountBase/<remote>.'';
     };
 
-    extraOptions = mkOption {
-      type = types.listOf types.str;
+    mountOpts = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
       default = [
-        "--allow-other"
-        "--vfs-cache-mode writes"
+        "--vfs-cache-mode=writes"
       ];
-      description = "Extra options for rclone mount command";
+      description = ''Additional rclone mount options (excluding logging flags).'';
+    };
+
+    logFolder = lib.mkOption {
+      type = lib.types.path;
+      default = "${home}/.cache/rclone";
+      description = ''
+        Path to rclone log file.
+      '';
+    };
+
+    logLevel = lib.mkOption {
+      type = lib.types.enum [
+        "DEBUG"
+        "INFO"
+        "NOTICE"
+        "ERROR"
+        "CRITICAL"
+      ];
+      default = "NOTICE";
+      description = ''
+        The logging level for rclone (`--log-level`).
+
+        Possible values:
+        - DEBUG:    Detailed output for debugging.
+        - INFO:     Standard information.
+        - NOTICE:   Default, only important events.
+        - ERROR:    Errors only.
+        - CRITICAL: Critical errors only.
+      '';
     };
   };
 
-  config = lib.mkIf config.rcloneMounts.enable {
-    home.packages = [ pkgs.rclone ];
+  config = lib.mkIf cfg.enable {
+    home.packages = [
+      pkgs.rclone
+    ];
+
+    systemd.user.targets."rclone-mounts" = {
+      Unit = {
+        Description = "Target grouping all rclone mount services";
+        Wants = [ "network.target" ];
+        After = [ "network.target" ];
+        Requires = map (r: "rclone-mount@${r}.service") cfg.remotes;
+      };
+      Install = {
+        WantedBy = [ "default.target" ];
+      };
+    };
 
     systemd.user.services = lib.listToAttrs (
-      map (remote: {
-        name = "rclone-mount-${remote}";
+      map (r: {
+        name = "rclone-mount@${r}";
         value = {
           Unit = {
-            Description = "Rclone Mount Service for ${remote}";
-            Requires = [ "default.target" ];
+            Description = "Mount rclone remote '${r}'";
+            Wants = [ "network.target" ];
             After = [ "network.target" ];
+            PartOf = [ "rclone-mounts.target" ];
           };
-          Install = {
-            WantedBy = [ "default.target" ];
-          };
+
           Service = {
             Type = "notify";
-            Restart = "on-failure";
-            ExecStartPre = "${pkgs.coreutils}/bin/mkdir -p ${config.rcloneMounts.mountPointPrefix}/${remote}";
-            ExecStart =
-              lib.concatStringsSep " " [
-                "${pkgs.rclone}/bin/rclone mount"
-                "${remote}:"
-                "${config.rcloneMounts.mountPointPrefix}/${remote}"
+            ExecStartPre = "${pkgs.coreutils}/bin/mkdir -p ${cfg.mountBase}/${r}";
+            ExecStart = lib.concatStringsSep " " (
+              [
+                "${pkgs.rclone}/bin/rclone"
+                "mount"
+                "${r}:"
+                "${cfg.mountBase}/${r}"
+                "--log-file"
+                "${cfg.logFolder}/${r}.log"
+                "--log-level"
+                "${cfg.logLevel}"
               ]
-              + " "
-              + lib.concatStringsSep " " config.rcloneMounts.extraOptions;
-            ExecStop = "${pkgs.fuse}/bin/fusermount -u ${config.rcloneMounts.mountPointPrefix}/${remote}";
+              ++ cfg.mountOpts
+            );
+            ExecStop = "${pkgs.fuse}/bin/fusermount -u -z ${cfg.mountBase}/${r}";
+            Restart = "on-failure";
+            RestartSec = 5;
+          };
+
+          Install = {
+            WantedBy = [ "rclone-mounts.target" ];
           };
         };
-      }) config.rcloneMounts.remotes
+      }) cfg.remotes
     );
   };
 }

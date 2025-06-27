@@ -93,11 +93,13 @@
   # services.home-manager.autoUpgrade.enable = true;
   # services.home-manager.autoUpgrade.frequency = "weekly";
 
-  rcloneMounts.enable = true;
-  rcloneMounts.mountPointPrefix = "%h/Sync";
-  rcloneMounts.remotes = [
-    "gdrive-pterox64"
-    "gdrive-eplatohin-eteron-ru"
-    "yd-pterox.ru"
-  ];
+  home.rcloneMounts = {
+    enable = true;
+    remotes = [
+      "gdrive-pterox64"
+      "gdrive-eplatohin-eteron-ru"
+      "yd-pterox.ru"
+    ];
+    #   logLevel = "INFO";
+  };
 }
