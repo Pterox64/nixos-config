@@ -8,6 +8,9 @@
   ];
   boot.extraModprobeConfig = ''
     options fuse allow_other
+    # reset=1 — сброс контроллера при инициализации
+    # quirks=0x1358:0xc123:0x40 — ваш Vendor:Product + бит 0x40
+    options btusb reset=1 quirks=0x1358:0xc123:0x40
   '';
   boot.kernelParams = [
     "amd_pstate=active"

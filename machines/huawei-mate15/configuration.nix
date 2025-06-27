@@ -44,6 +44,7 @@
   ];
 
   hardware = {
+    firmware = [ pkgs.firmwareLinuxNonfree ];
     usb-modeswitch.enable = true;
     enableRedistributableFirmware = true;
     cpu.amd.ryzen-smu.enable = true;
