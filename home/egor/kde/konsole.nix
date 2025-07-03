@@ -122,20 +122,21 @@ in
     WallpaperFlipType=NoFlip
     WallpaperOpacity=0.4
   '';
+
+  home.file.".local/share/konsole/Admin.profile".text = ''
+    [Appearance]
+    ColorScheme=Miku
+    Font=Cascadia Code PL,12
+
+    [General]
+    InvertSelectionColors=true
+    Command=${pkgs.zsh}/bin/zsh
+    Name=Admin
+    Parent=FALLBACK/
+  '';
+
   programs.konsole = {
     enable = true;
     defaultProfile = "Admin";
-    profiles = {
-      admin = {
-        name = "Admin";
-        colorScheme = "Miku";
-        font = {
-          name = "Cascadia Code PL";
-          size = 12;
-        };
-        command = "${pkgs.zsh}/bin/zsh";
-        extraConfig = { };
-      };
-    };
   };
 }
