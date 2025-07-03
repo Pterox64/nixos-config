@@ -5,6 +5,11 @@
     ./plasmaManager.nix
   ];
   programs.plasma.enable = true;
+
+  home.sessionVariables = {
+    QT_QPA_PLATFORM = "wayland";
+  };
+
   home.packages = with pkgs.kdePackages; [
     plasma-workspace
     kio-gdrive
@@ -34,5 +39,10 @@
     kweather
     plasma-workspace-wallpapers
     plasma-firewall
+    (pkgs.qt5.qtbase)
+    (pkgs.qt5.qtwayland) # плагин для Qt5+Wayland
+    # или для Qt6:
+    (pkgs.qt6.qtbase)
+    (pkgs.qt6.qtwayland)
   ];
 }
