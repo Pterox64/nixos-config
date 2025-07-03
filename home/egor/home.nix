@@ -88,7 +88,7 @@
   #  /etc/profiles/per-user/egor/etc/profile.d/hm-session-vars.sh
   #
 
-  services.syncthing.enable = true;
+  # services.syncthing.enable = true;
   # services.gnome-keyring.enable = true;
   # services.home-manager.autoUpgrade.enable = true;
   # services.home-manager.autoUpgrade.frequency = "weekly";
