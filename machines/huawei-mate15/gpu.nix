@@ -15,6 +15,7 @@
         vulkan-tools
         glxinfo
         mesa
+        amdvlk
       ];
     };
     amdgpu.amdvlk.enable = false;
