@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 {
   imports = [
-    ./konsole.nix
+    ./konsole
     ./plasmaManager.nix
   ];
   programs.plasma.enable = true;
