@@ -12,5 +12,7 @@
     vlc
     vlc-bittorrent
     xdg-desktop-portal-gnome
+    vaults
+    sirikali
   ];
 }
