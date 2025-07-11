@@ -31,6 +31,8 @@
     fastfetch
     openssl
     clevis
+    cryfs
+    gocryptfs
   ];
   environment.gnome.excludePackages = with pkgs; [
     geary
